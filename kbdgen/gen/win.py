@@ -517,7 +517,7 @@ class WindowsGenerator(Generator):
         
         o += ("SignTool=signtool -a sha1 -t http://timestamp.verisign.com/scripts/timstamp.dll " +
               "-pkcs12 $q%s$q -$ commercial " +
-              "-n $q%s$q -i $q%s$q"
+              "-n $q%s$q -i $q%s$q $f") % (
                   self._wine_path(pfx),
                   app_name,
                   app_url)
