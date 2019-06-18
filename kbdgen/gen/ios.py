@@ -43,7 +43,7 @@ class AppleiOSGenerator(Generator):
             os.makedirs(str(target_dir.parent), exist_ok=True)
             shutil.move(target, target_dir)
 
-    def get_source_tree(self, base, repo="divvun/giellakbd-ios", branch="master"):
+    def get_source_tree(self, base, repo="fry/giellakbd-ios", branch="master"):
         """
         Downloads the IME source from Github as a tarball, then extracts to deps dir.
         """
@@ -579,7 +579,7 @@ class AppleiOSGenerator(Generator):
         plist["LSApplicationQueriesSchemes"][0] = pkg_id
         plist["NSExtension"]["NSExtensionAttributes"]["PrimaryLanguage"] = layout.locale
         plist["DivvunKeyboardIndex"] = n
-        
+
         dsn = self._project.target("ios").get("sentryDsn", None)
         if dsn is not None:
             plist["SentryDSN"] = dsn
